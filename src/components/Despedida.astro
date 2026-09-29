@@ -1,0 +1,47 @@
+---
+// Despedida.astro
+// WhatsApp de confirmación según información.txt (Bolivia, +591)
+const numeros = ["70871338", "77043531"];
+const mensaje =
+  "Me complace confirmar mi asistencia para los 15 años de Alexandra Nathaly. Nos vemos el sábado 17 de octubre, estaré sin falta";
+---
+
+<section class="seccion seccion-suave">
+  <div class="max-w-xl mx-auto revelar">
+    <div class="separador-plata mb-7" aria-hidden="true">✦</div>
+    <p class="texto italic text-[1.4rem]">
+      Con la bendición de Dios y el amor de mi familia, quiero compartir el
+      comienzo de esta bella etapa junto a ustedes.
+    </p>
+  </div>
+
+  <div class="tarjeta mt-8 revelar">
+    <p class="etiqueta">Tu presencia es importante</p>
+    <h2 class="titulo-seccion mt-1">Confirma tu asistencia</h2>
+    <div class="separador-plata mt-3 mb-8" aria-hidden="true">✦</div>
+
+    <div class="flex flex-col items-center gap-6">
+      {
+        numeros.map((numero) => (
+          <a
+            href={`https://wa.me/591${numero}?text=${encodeURIComponent(mensaje)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Confirmar asistencia por WhatsApp al ${numero}`}
+            class="boton-lila px-6 text-[0.95rem] tracking-[0.08em]"
+          >
+            Confirmar · {numero}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+
+  <p class="titulo-seccion text-[2.4rem] mt-8 revelar">
+    ¡Los espero con mucho cariño!
+  </p>
+</section>
+
+<script>
+  import "../scripts/revelar";
+</script>

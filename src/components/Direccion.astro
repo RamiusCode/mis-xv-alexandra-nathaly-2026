@@ -1,0 +1,39 @@
+---
+// Direccion.astro — datos según información.txt
+---
+
+<section class="seccion seccion-suave">
+  <div class="revelar">
+    <p class="etiqueta">Recepción social</p>
+    <h2 class="titulo-seccion mt-1">¿Dónde?</h2>
+    <div class="separador-plata mt-3 mb-8" aria-hidden="true">✦</div>
+
+    <div class="tarjeta">
+      <img
+        src="/imagenes/IconoSalon.webp"
+        alt=""
+        class="w-16 h-16 mx-auto mb-5 object-contain"
+      />
+      <h3 class="texto text-2xl text-[#3e3f91]">
+        Salón de Eventos<br />«Spazio 360»
+      </h3>
+      <p class="texto text-lg mt-2">
+        Av. Alemania<br />Calle Luis Arce #3110
+      </p>
+      <p class="etiqueta text-[#7c6fc6] mt-4">19:30 hrs.</p>
+
+      <a
+        href="https://www.google.com/maps/search/?api=1&query=Sal%C3%B3n%20de%20Eventos%20Spazio%20360%2C%20Calle%20Luis%20Arce%203110%2C%20Av.%20Alemania"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="boton-lila mt-8"
+      >
+        Ver ubicación
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  import "../scripts/revelar";
+</script>

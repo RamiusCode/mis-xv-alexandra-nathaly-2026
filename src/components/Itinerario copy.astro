@@ -1,0 +1,591 @@
+---
+// Itinerario.astro - Quinceañera
+---
+
+<section class="px-4 relative overflow-hidden py-16">
+  <div class="max-w-5xl mx-auto relative z-10">
+    <div class="max-w-3xl mx-auto relative">
+      <!-- TÍTULO -->
+      <div class="text-center mb-6 titulo-itinerario opacity-0">
+        <h2
+          class="font-charm text-2xl md:text-3xl lg:text-3xl text-[#a27735] font-bold mb-3"
+        >
+          ITINERARIO
+        </h2>
+        <div class="flex items-center justify-center gap-3">
+          <div
+            class="w-16 h-[2px] bg-gradient-to-r from-transparent to-[#a27735]"
+          >
+          </div>
+          <div class="w-2 h-2 rounded-full bg-[#a27735]"></div>
+          <div
+            class="w-16 h-[2px] bg-gradient-to-l from-transparent to-[#a27735]"
+          >
+          </div>
+        </div>
+      </div>
+
+      <div class="relative px-4 md:px-8">
+        <!-- 🌸 FLORES LATERALES IZQUIERDA -->
+        <div
+          class="absolute -left-4 md:-left-8 lg:-left-12 top-1/2 -translate-y-1/2 w-10 md:w-24 lg:w-28 pointer-events-none z-0 flor-lateral-izq opacity-0"
+        >
+          <img
+            src="/imagenes/FlorLateral.webp"
+            alt="Flores izquierda"
+            class="w-full h-auto object-contain"
+          />
+        </div>
+
+        <!-- 🌸 FLORES LATERALES DERECHA -->
+        <div
+          class="absolute -right-4 md:-right-8 lg:-right-12 top-1/2 -translate-y-1/2 w-10 md:w-24 lg:w-28 pointer-events-none z-0 flor-lateral-der opacity-0"
+        >
+          <img
+            src="/imagenes/FlorLateral.webp"
+            alt="Flores derecha"
+            class="w-full h-auto object-contain scale-x-[-1]"
+          />
+        </div>
+
+        <!-- LÍNEA VERTICAL CENTRAL -->
+        <div
+          class="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#a27735] via-[#b89148] to-[#a27735] rounded-full shadow-sm linea-central opacity-0"
+        >
+        </div>
+
+        <div class="space-y-0" id="eventos-container">
+          <!-- EVENTO 1: Ingreso de invitados -->
+          <div class="flex justify-center py-1">
+            <div
+              class="w-8 h-8 rounded-full bg-gradient-to-br from-[#a27735] to-[#8b6a2e] flex items-center justify-center relative z-10 corazon-item shadow-md opacity-0"
+            >
+              <svg
+                class="w-4 h-4 text-white"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+
+          <div
+            class="evento-item grid grid-cols-2 gap-4 md:gap-8 py-1 opacity-0"
+          >
+            <div
+              class="flex flex-col items-center justify-center px-2 md:px-4 imagen-izq"
+            >
+              <div
+                class="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 transform transition-transform duration-300 hover:scale-110"
+              >
+                <img
+                  src="/imagenes/direccion.png"
+                  alt="Ingreso de invitados"
+                  class="w-full h-full object-contain icono-dorado"
+                />
+              </div>
+            </div>
+            <div
+              class="flex flex-col items-center justify-center px-2 md:px-4 text-center texto-der"
+            >
+              <p
+                class="font-charm text-lg md:text-base lg:text-lg text-[#a27735] font-bold leading-tight"
+              >
+                Ingreso de invitados
+              </p>
+              <p class="font-charm text-base md:text-sm text-[#800020] mt-0.5">
+                20:00 hrs.
+              </p>
+            </div>
+          </div>
+
+          <!-- EVENTO 2: Entrada especial -->
+          <div class="flex justify-center py-1">
+            <div
+              class="w-8 h-8 rounded-full bg-gradient-to-br from-[#a27735] to-[#8b6a2e] flex items-center justify-center relative z-10 corazon-item shadow-md opacity-0"
+            >
+              <svg
+                class="w-4 h-4 text-white"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+
+          <div
+            class="evento-item grid grid-cols-2 gap-4 md:gap-8 py-1 opacity-0"
+          >
+            <div
+              class="flex flex-col items-center justify-center px-2 md:px-4 text-center texto-izq"
+            >
+              <p
+                class="font-charm text-lg md:text-base lg:text-lg text-[#a27735] font-bold leading-tight"
+              >
+                Entrada especial
+              </p>
+              <p class="font-charm text-base md:text-sm text-[#800020] mt-0.5">
+                22:00 hrs.
+              </p>
+            </div>
+            <div
+              class="flex flex-col items-center justify-center px-2 md:px-4 imagen-der"
+            >
+              <div
+                class="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 transform transition-transform duration-300 hover:scale-110"
+              >
+                <img
+                  src="/imagenes/Zapatos.webp"
+                  alt="Entrada especial"
+                  class="w-full h-full object-contain icono-dorado"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- EVENTO 3: Baile principal -->
+          <div class="flex justify-center py-1">
+            <div
+              class="w-8 h-8 rounded-full bg-gradient-to-br from-[#a27735] to-[#8b6a2e] flex items-center justify-center relative z-10 corazon-item shadow-md opacity-0"
+            >
+              <svg
+                class="w-4 h-4 text-white"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+
+          <div
+            class="evento-item grid grid-cols-2 gap-4 md:gap-8 py-1 opacity-0"
+          >
+            <div
+              class="flex flex-col items-center justify-center px-2 md:px-4 imagen-izq"
+            >
+              <div
+                class="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 transform transition-transform duration-300 hover:scale-110"
+              >
+                <img
+                  src="/imagenes/vals.png"
+                  alt="Baile principal"
+                  class="w-full h-full object-contain icono-dorado"
+                />
+              </div>
+            </div>
+            <div
+              class="flex flex-col items-center justify-center px-2 md:px-4 text-center texto-der"
+            >
+              <p
+                class="font-charm text-lg md:text-base lg:text-lg text-[#a27735] font-bold leading-tight"
+              >
+                Baile principal
+              </p>
+              <p class="font-charm text-base md:text-sm text-[#800020] mt-0.5">
+                22:30 hrs.
+              </p>
+            </div>
+          </div>
+
+          <!-- EVENTO 4: Brindis -->
+          <div class="flex justify-center py-1">
+            <div
+              class="w-8 h-8 rounded-full bg-gradient-to-br from-[#a27735] to-[#8b6a2e] flex items-center justify-center relative z-10 corazon-item shadow-md opacity-0"
+            >
+              <svg
+                class="w-4 h-4 text-white"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+
+          <div
+            class="evento-item grid grid-cols-2 gap-4 md:gap-8 py-1 opacity-0"
+          >
+            <div
+              class="flex flex-col items-center justify-center px-2 md:px-4 text-center texto-izq"
+            >
+              <p
+                class="font-charm text-lg md:text-base lg:text-lg text-[#a27735] font-bold leading-tight"
+              >
+                Brindis
+              </p>
+            </div>
+            <div
+              class="flex flex-col items-center justify-center px-2 md:px-4 imagen-der"
+            >
+              <div
+                class="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 transform transition-transform duration-300 hover:scale-110"
+              >
+                <img
+                  src="/imagenes/brindis.png"
+                  alt="Brindis"
+                  class="w-full h-full object-contain icono-dorado"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- EVENTO 5: Cena -->
+          <div class="flex justify-center py-1">
+            <div
+              class="w-8 h-8 rounded-full bg-gradient-to-br from-[#a27735] to-[#8b6a2e] flex items-center justify-center relative z-10 corazon-item shadow-md opacity-0"
+            >
+              <svg
+                class="w-4 h-4 text-white"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+
+          <div
+            class="evento-item grid grid-cols-2 gap-4 md:gap-8 py-1 opacity-0"
+          >
+            <div
+              class="flex flex-col items-center justify-center px-2 md:px-4 imagen-izq"
+            >
+              <div
+                class="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 transform transition-transform duration-300 hover:scale-110"
+              >
+                <img
+                  src="/imagenes/cena.png"
+                  alt="Cena"
+                  class="w-full h-full object-contain icono-dorado"
+                />
+              </div>
+            </div>
+            <div
+              class="flex flex-col items-center justify-center px-2 md:px-4 text-center texto-der"
+            >
+              <p
+                class="font-charm text-lg md:text-base lg:text-lg text-[#a27735] font-bold leading-tight"
+              >
+                Cena
+              </p>
+              <p class="font-charm text-base md:text-sm text-[#800020] mt-0.5">
+                23:00 hrs.
+              </p>
+            </div>
+          </div>
+
+          <!-- EVENTO 6: Baile sorpresa -->
+          <div class="flex justify-center py-1">
+            <div
+              class="w-8 h-8 rounded-full bg-gradient-to-br from-[#a27735] to-[#8b6a2e] flex items-center justify-center relative z-10 corazon-item shadow-md opacity-0"
+            >
+              <svg
+                class="w-4 h-4 text-white"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+
+          <div
+            class="evento-item grid grid-cols-2 gap-4 md:gap-8 py-1 opacity-0"
+          >
+            <div
+              class="flex flex-col items-center justify-center px-2 md:px-4 text-center texto-izq"
+            >
+              <p
+                class="font-charm text-lg md:text-base lg:text-lg text-[#a27735] font-bold leading-tight"
+              >
+                Baile sorpresa
+              </p>
+              <p class="font-charm text-base md:text-sm text-[#800020] mt-0.5">
+                23:30 hrs.
+              </p>
+            </div>
+            <div
+              class="flex flex-col items-center justify-center px-2 md:px-4 imagen-der"
+            >
+              <div
+                class="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 transform transition-transform duration-300 hover:scale-110"
+              >
+                <img
+                  src="/imagenes/musica2.png"
+                  alt="Baile sorpresa"
+                  class="w-full h-full object-contain icono-dorado"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- EVENTO 7: Pastel -->
+          <div class="flex justify-center py-1">
+            <div
+              class="w-8 h-8 rounded-full bg-gradient-to-br from-[#a27735] to-[#8b6a2e] flex items-center justify-center relative z-10 corazon-item shadow-md opacity-0"
+            >
+              <svg
+                class="w-4 h-4 text-white"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+
+          <div
+            class="evento-item grid grid-cols-2 gap-4 md:gap-8 py-1 opacity-0"
+          >
+            <div
+              class="flex flex-col items-center justify-center px-2 md:px-4 imagen-izq"
+            >
+              <div
+                class="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 transform transition-transform duration-300 hover:scale-110"
+              >
+                <img
+                  src="/imagenes/torta.png"
+                  alt="Pastel"
+                  class="w-full h-full object-contain icono-dorado"
+                />
+              </div>
+            </div>
+            <div
+              class="flex flex-col items-center justify-center px-2 md:px-4 text-center texto-der"
+            >
+              <p
+                class="font-charm text-lg md:text-base lg:text-lg text-[#a27735] font-bold leading-tight"
+              >
+                Pastel
+              </p>
+              <p class="font-charm text-base md:text-sm text-[#800020] mt-0.5">
+                23:50 hrs.
+              </p>
+            </div>
+          </div>
+
+          <!-- EVENTO 8: Fiesta -->
+          <div class="flex justify-center py-1">
+            <div
+              class="w-8 h-8 rounded-full bg-gradient-to-br from-[#a27735] to-[#8b6a2e] flex items-center justify-center relative z-10 corazon-item shadow-md opacity-0"
+            >
+              <svg
+                class="w-4 h-4 text-white"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+
+          <div
+            class="evento-item grid grid-cols-2 gap-4 md:gap-8 py-1 opacity-0"
+          >
+            <div
+              class="flex flex-col items-center justify-center px-2 md:px-4 text-center texto-izq"
+            >
+              <p
+                class="font-charm text-lg md:text-base lg:text-lg text-[#a27735] font-bold leading-tight"
+              >
+                Fiesta
+              </p>
+              <p class="font-charm text-base md:text-sm text-[#800020] mt-0.5">
+                00:10 hrs.
+              </p>
+            </div>
+            <div
+              class="flex flex-col items-center justify-center px-2 md:px-4 imagen-der"
+            >
+              <div
+                class="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 transform transition-transform duration-300 hover:scale-110"
+              >
+                <img
+                  src="/imagenes/musica2.png"
+                  alt="Fiesta"
+                  class="w-full h-full object-contain icono-dorado"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Corazón final -->
+          <div class="flex justify-center py-1">
+            <div
+              class="w-8 h-8 rounded-full bg-gradient-to-br from-[#a27735] to-[#8b6a2e] flex items-center justify-center relative z-10 corazon-item shadow-md opacity-0"
+            >
+              <svg
+                class="w-4 h-4 text-white"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .evento-item p {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .evento-item:hover p:first-of-type {
+    color: #a27735;
+    transform: scale(1.08);
+    text-shadow: 0 2px 8px rgba(162, 119, 53, 0.3);
+  }
+
+  .corazon-item {
+    filter: drop-shadow(0 4px 12px rgba(162, 119, 53, 0.5));
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .corazon-item:hover {
+    transform: scale(1.2) rotate(10deg);
+    filter: drop-shadow(0 8px 20px rgba(162, 119, 53, 0.7));
+  }
+
+  /* Filtro dorado para #a27735 */
+  .icono-dorado {
+    filter: brightness(0) saturate(100%) invert(56%) sepia(12%) saturate(1486%)
+      hue-rotate(359deg) brightness(92%) contrast(87%);
+    transition:
+      filter 0.3s ease,
+      transform 0.3s ease;
+  }
+
+  .icono-dorado:hover {
+    filter: brightness(0) saturate(100%) invert(56%) sepia(12%) saturate(1486%)
+      hue-rotate(359deg) brightness(100%) contrast(90%)
+      drop-shadow(0 6px 16px rgba(162, 119, 53, 0.5));
+  }
+
+  .linea-central {
+    box-shadow: 0 0 15px rgba(162, 119, 53, 0.3);
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Animación del título
+  gsap.fromTo(
+    ".titulo-itinerario",
+    { opacity: 0, y: -30 },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 1.2,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".titulo-itinerario",
+        start: "top 85%",
+        toggleActions: "play none none none",
+        once: true,
+      },
+    },
+  );
+
+  // Animación SIMULTÁNEA de Línea, Flores, Corazones y Eventos
+  const eventosContainer = document.getElementById("eventos-container");
+  if (eventosContainer) {
+    ScrollTrigger.create({
+      trigger: eventosContainer,
+      start: "top 80%",
+      toggleActions: "play none none none",
+      once: true,
+      onEnter: () => {
+        // Línea Central
+        gsap.fromTo(
+          ".linea-central",
+          { opacity: 0, scaleY: 0 },
+          {
+            opacity: 1,
+            scaleY: 1,
+            duration: 1.5,
+            ease: "power2.out",
+            transformOrigin: "top center",
+          },
+        );
+
+        // Flores Laterales
+        gsap.fromTo(
+          ".flor-lateral-izq",
+          { opacity: 0, x: -40 },
+          {
+            opacity: 0.8,
+            x: 0,
+            duration: 1.2,
+            ease: "power3.out",
+          },
+        );
+
+        gsap.fromTo(
+          ".flor-lateral-der",
+          { opacity: 0, x: 40 },
+          {
+            opacity: 0.8,
+            x: 0,
+            duration: 1.2,
+            ease: "power3.out",
+          },
+        );
+
+        // Corazones
+        gsap.fromTo(
+          ".corazon-item",
+          { opacity: 0, scale: 0 },
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 0.8,
+            ease: "back.out(1.7)",
+            stagger: 0,
+          },
+        );
+
+        // Eventos
+        gsap.fromTo(
+          ".evento-item",
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: "power3.out",
+            stagger: 0,
+          },
+        );
+      },
+    });
+  }
+</script>

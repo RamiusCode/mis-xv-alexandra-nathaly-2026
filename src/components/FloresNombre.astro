@@ -1,0 +1,339 @@
+<section
+    class="relative text-black w-full overflow-hidden"
+    id="portada"
+>
+    <!-- FLORES ESQUINAS SUPERIORES -->
+    <div
+        class="absolute top-0 left-0 w-full pointer-events-none z-0"
+        id="flores-arriba"
+    >
+        <img
+            src="/imagenes/floresarriba.webp"
+            alt="Flores decorativas"
+            class="w-full h-auto block"
+        />
+    </div>
+
+    <div class="relative z-10 flex flex-col items-center px-4 pt-[16vw] sm:pt-24 md:pt-20">
+        <!-- CORONA -->
+        <div id="corona" class="w-[44vw] max-w-[260px]">
+            <img
+                src="/imagenes/CoronaPlata.webp"
+                alt="Corona de quinceañera"
+                class="w-full h-auto object-contain"
+            />
+        </div>
+
+        <!-- TÍTULO -->
+        <div
+            class="relative text-center mt-6 sm:mt-8 w-full"
+            id="titulo-container"
+        >
+            <h1
+                class="font-crimson text-3xl sm:text-4xl md:text-5xl text-[#3e3f91] tracking-[0.12em]"
+                id="titulo"
+            >
+                MIS XV AÑOS
+            </h1>
+
+            <div
+                class="flex items-center justify-center gap-3 mt-3 mx-auto w-[70%] max-w-[380px]"
+                id="separador-titulo"
+                aria-hidden="true"
+            >
+                <span class="linea-plata flex-1"></span>
+                <span class="text-[#9c9cb0] text-lg leading-none">⚜</span>
+                <span class="linea-plata flex-1"></span>
+            </div>
+        </div>
+
+        <!-- NOMBRE -->
+        <div
+            class="relative flex items-center justify-center gap-2 sm:gap-6 md:gap-10 w-full max-w-3xl mt-8 mb-6"
+            id="nombre-container"
+        >
+            <span class="destello absolute left-[14%] top-[2%]" aria-hidden="true">✦</span>
+            <span class="destello absolute right-[12%] top-[38%]" aria-hidden="true">✦</span>
+            <span class="destello absolute left-[20%] bottom-[18%] text-sm" aria-hidden="true">✦</span>
+            <span class="destello absolute right-[18%] bottom-[-4%]" aria-hidden="true">✦</span>
+
+            <div id="mariposa-izq" class="flex-shrink-0">
+                <img
+                    src="/gif/MariposaLila.gif"
+                    alt="Mariposa izquierda"
+                    class="w-10 h-auto md:w-14 object-contain"
+                />
+            </div>
+
+            <h2
+                class="font-great-vibes text-[4.2rem] sm:text-7xl md:text-8xl text-center nombre-plata leading-[1.05] min-w-0"
+                id="nombre-typewriter"
+            >
+            </h2>
+
+            <div id="mariposa-der" class="flex-shrink-0">
+                <img
+                    src="/gif/MariposaLila.gif"
+                    alt="Mariposa derecha"
+                    class="w-10 h-auto md:w-14 object-contain scale-x-[-1]"
+                />
+            </div>
+        </div>
+    </div>
+
+    <!-- SILUETA CON FLORES ESQUINAS INFERIORES -->
+    <div class="relative w-full overflow-visible" id="foto-container">
+        <div
+            class="absolute bottom-0 left-0 w-full pointer-events-none z-0"
+            id="flores-abajo"
+        >
+            <img
+                src="/imagenes/floresarriba.webp"
+                alt="Flores decorativas"
+                class="w-full h-auto block scale-y-[-1]"
+            />
+        </div>
+
+        <div class="relative z-10 flex justify-center">
+            <img
+                src="/imagenes/Silueta.webp"
+                alt="Silueta de la quinceañera"
+                class="w-[92vw] max-w-[560px] h-auto object-contain"
+                id="foto-quinceañera"
+            />
+        </div>
+    </div>
+</section>
+
+<script>
+    import { gsap } from "gsap";
+
+    document.addEventListener("DOMContentLoaded", () => {
+        console.log("Iniciando animaciones...");
+
+        // FLORES ARRIBA - Sin animación para mantener opacidad completa
+        gsap.set("#flores-arriba", { clearProps: "all" });
+
+        // CORONA - Zoom in
+        gsap.fromTo(
+            "#corona",
+            { opacity: 0, scale: 0.5 },
+            {
+                opacity: 1,
+                scale: 1,
+                duration: 1.2,
+                ease: "back.out(1.2)",
+                delay: 0.3,
+            },
+        );
+
+        // TÍTULO - Fade in de arriba
+        gsap.fromTo(
+            "#titulo",
+            { opacity: 0, y: 30 },
+            { opacity: 1, y: 0, duration: 1, ease: "power2.out", delay: 0.5 },
+        );
+
+        // MARIPOSA IZQUIERDA - Llega de la izquierda
+        gsap.fromTo(
+            "#mariposa-izq",
+            { opacity: 0, x: -50, y: 20, rotation: -15, scale: 0.8 },
+            {
+                opacity: 1,
+                x: 0,
+                y: 0,
+                rotation: 0,
+                scale: 1,
+                duration: 4,
+                ease: "power2.out",
+            },
+        );
+
+        // MARIPOSA IZQUIERDA - Flotado con movimiento elegante
+        gsap.to("#mariposa-izq", {
+            y: -12,
+            rotation: 3,
+            duration: 3,
+            ease: "sine.inOut",
+            yoyo: true,
+            repeat: -1,
+            delay: 1.5,
+        });
+
+        gsap.to("#mariposa-izq", {
+            x: 10,
+            duration: 4,
+            ease: "sine.inOut",
+            yoyo: true,
+            repeat: -1,
+            delay: 1.5,
+        });
+
+        // MARIPOSA DERECHA - Llega de la derecha
+        gsap.fromTo(
+            "#mariposa-der",
+            { opacity: 0, x: 50, y: 20, rotation: 15, scale: 0.8 },
+            {
+                opacity: 1,
+                x: 0,
+                y: 0,
+                rotation: 0,
+                scale: 1,
+                duration: 4,
+                ease: "power2.out",
+            },
+        );
+
+        // MARIPOSA DERECHA - Flotado con movimiento elegante
+        gsap.to("#mariposa-der", {
+            y: -12,
+            rotation: -3,
+            duration: 3,
+            ease: "sine.inOut",
+            yoyo: true,
+            repeat: -1,
+            delay: 1.5,
+        });
+
+        gsap.to("#mariposa-der", {
+            x: -10,
+            duration: 4,
+            ease: "sine.inOut",
+            yoyo: true,
+            repeat: -1,
+            delay: 1.5,
+        });
+
+        // SEPARADOR DEL TÍTULO - Se abre desde el centro
+        gsap.fromTo(
+            "#separador-titulo",
+            { opacity: 0, scaleX: 0.3 },
+            { opacity: 1, scaleX: 1, duration: 1.2, ease: "power2.out", delay: 0.8 },
+        );
+
+        // DESTELLOS - Titilan alrededor del nombre
+        gsap.fromTo(
+            ".destello",
+            { opacity: 0.25, scale: 0.7 },
+            {
+                opacity: 1,
+                scale: 1.15,
+                duration: 1.4,
+                ease: "sine.inOut",
+                yoyo: true,
+                repeat: -1,
+                stagger: { each: 0.5, from: "random" },
+            },
+        );
+
+        // FLORES ABAJO - Suben suavemente junto con la silueta
+        gsap.fromTo(
+            "#flores-abajo",
+            { opacity: 0, y: 40 },
+            { opacity: 1, y: 0, duration: 1.5, ease: "power2.out", delay: 0.7 },
+        );
+
+        // NOMBRE - Efecto cascada letra por letra con salto de línea entre "Nicol" y "Melany"
+        function nombreCascadaElegante() {
+            const linea1 = "Alexandra";
+            const linea2 = "Nathaly";
+            const contenedor = document.getElementById("nombre-typewriter");
+            if (!contenedor) return;
+
+            // Letras de la primera línea
+            const letrasLinea1 = linea1
+                .split("")
+                .map(
+                    (letra, index) =>
+                        `<span class="letra-cascada" style="
+                            --i: ${index};
+                            opacity: 0; 
+                            display: inline-block; 
+                            transform: translateY(30px) scale(0.8);
+                            filter: blur(2px);
+                        ">${letra}</span>`,
+                )
+                .join("");
+
+            // Letras de la segunda línea (índice continúa para stagger fluido)
+            const letrasLinea2 = linea2
+                .split("")
+                .map(
+                    (letra, index) =>
+                        `<span class="letra-cascada" style="
+                            --i: ${linea1.length + index};
+                            opacity: 0; 
+                            display: inline-block; 
+                            transform: translateY(30px) scale(0.8);
+                            filter: blur(2px);
+                        ">${letra}</span>`,
+                )
+                .join("");
+
+            // Dos líneas separadas por un salto de línea
+            contenedor.innerHTML = `
+                <span class="block">${letrasLinea1}</span>
+                <span class="block">${letrasLinea2}</span>
+            `;
+
+            gsap.to(".letra-cascada", {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                filter: "blur(0px)",
+                duration: 0.8,
+                ease: "back.out(1.6)",
+                stagger: { each: 0.12, from: "start" },
+            });
+        }
+
+        // IMAGEN PRINCIPAL - Fade in con zoom
+        gsap.fromTo(
+            "#foto-container",
+            { opacity: 0, scale: 0.8, y: 30 },
+            { opacity: 1, scale: 1, y: 0, duration: 1.2, ease: "power2.out" },
+        );
+
+        nombreCascadaElegante();
+        console.log("Animaciones listas!");
+    });
+</script>
+
+<style>
+    /* Fondo blanco-lila declarado como imagen: el modo oscuro forzado lo respeta */
+    #portada {
+        background-image: linear-gradient(180deg, #fbfaff 0%, #f4f2fc 55%, #f7f5fd 100%);
+    }
+
+    .linea-plata {
+        height: 1px;
+        background-image: linear-gradient(90deg, transparent, #a9a9bd 40%, #a9a9bd 60%, transparent);
+    }
+
+    /* Nombre en plata con relieve */
+    .nombre-plata {
+        color: #8c8ca3;
+        text-shadow:
+            0 1px 0 #ffffff,
+            0 2px 3px rgba(70, 70, 110, 0.35),
+            0 0 14px rgba(180, 170, 230, 0.35);
+    }
+
+    .destello {
+        color: #b3b3c6;
+        text-shadow: 0 0 6px rgba(255, 255, 255, 0.9);
+        line-height: 1;
+    }
+
+
+    .letra-cascada {
+        transition: all 0.3s ease;
+        will-change: transform, opacity, filter;
+        position: relative;
+    }
+
+    .letra-cascada:hover {
+        transform: translateY(-3px) scale(1.05) !important;
+        text-shadow: 0 0 12px rgba(140, 120, 220, 0.5) !important;
+    }
+</style>

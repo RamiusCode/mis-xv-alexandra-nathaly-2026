@@ -1,0 +1,211 @@
+---
+// SinNinos.astro
+---
+
+<section class="py-4 px-4">
+    <div class="max-w-xl mx-auto text-center">
+        <!-- 🌸 SEPARADOR SUPERIOR -->
+        <div class="flex justify-center mb-8" id="separador-sinninos">
+            <img
+                src="/imagenes/Separador.png"
+                alt="Separador decorativo"
+                class="w-32 md:w-48 lg:w-56 h-auto object-contain"
+            />
+        </div>
+
+        <!-- ÍCONO -->
+        <div class="flex justify-center mb-4" id="icono-sinninos">
+            <img
+                src="/imagenes/restriccion.png"
+                alt="Sin niños"
+                class="w-16 h-24 md:w-28 md:h-28 object-contain icono-dorado"
+            />
+        </div>
+
+        <!-- TÍTULO -->
+        <div class="mb-4" id="titulo-sinninos">
+            <h2
+                class="font-charm text-2xl md:text-3xl text-[#a27735] font-bold tracking-wide"
+            >
+                Con respeto…
+            </h2>
+        </div>
+
+        <!-- LÍNEA DECORATIVA -->
+        <div
+            class="flex items-center justify-center gap-3 mb-5"
+            id="linea-sinninos"
+        >
+            <div
+                class="w-12 md:w-16 h-[2px] bg-gradient-to-r from-transparent to-[#a27735]"
+            >
+            </div>
+            <div class="w-2 h-2 rounded-full bg-[#a27735] opacity-60"></div>
+            <div
+                class="w-12 md:w-16 h-[2px] bg-gradient-to-l from-transparent to-[#a27735]"
+            >
+            </div>
+        </div>
+
+        <!-- TEXTO PRINCIPAL -->
+        <div class="mb-3 px-2" id="descripcion-sinninos">
+            <p
+                class="font-charm text-xl md:text-2xl text-[#a27735] leading-relaxed"
+            >
+                Aunque apreciamos a sus pequeños, hemos decidido celebrar este
+                momento sin niños.
+            </p>
+        </div>
+
+        <!-- NOTA -->
+        <div class="mb-2" id="nota-sinninos">
+            <p
+                class="font-charm text-lg md:text-xl text-[#800020] leading-relaxed"
+            >
+                Esperamos que esta decisión no les impida asistir.
+            </p>
+        </div>
+
+        <!-- 🌸 FLORES SUPERIORES -->
+        <div class="flex justify-center mb-8" id="flores-arriba-despedida">
+            <img
+                src="/imagenes/FlorSeparador.webp"
+                alt="Flores decorativas"
+                class="w-32 md:w-56 lg:w-64 h-auto object-contain"
+            />
+        </div>
+    </div>
+</section>
+
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    if (typeof window !== "undefined") {
+        document.addEventListener("DOMContentLoaded", () => {
+            // Estado inicial
+            gsap.set("#separador-sinninos", { opacity: 0, scale: 0.8 });
+            gsap.set("#icono-sinninos", {
+                opacity: 0,
+                scale: 0.7,
+                rotation: -10,
+            });
+            gsap.set("#titulo-sinninos", { opacity: 0, y: 15 });
+            gsap.set("#linea-sinninos", { opacity: 0, scaleX: 0 });
+            gsap.set("#descripcion-sinninos", { opacity: 0, y: 15 });
+            gsap.set("#nota-sinninos", { opacity: 0, y: 10 });
+
+            ScrollTrigger.create({
+                trigger: "#separador-sinninos",
+                start: "top 85%",
+                end: "top 20%",
+                onEnter: () => {
+                    const tl = gsap.timeline();
+
+                    tl.to("#separador-sinninos", {
+                        opacity: 1,
+                        scale: 1,
+                        duration: 0.8,
+                        ease: "back.out(1.5)",
+                    })
+                        .to(
+                            "#icono-sinninos",
+                            {
+                                opacity: 1,
+                                scale: 1,
+                                rotation: 0,
+                                duration: 0.8,
+                                ease: "back.out(1.8)",
+                            },
+                            "-=0.4",
+                        )
+                        .to(
+                            "#titulo-sinninos",
+                            {
+                                opacity: 1,
+                                y: 0,
+                                duration: 0.7,
+                                ease: "power2.out",
+                            },
+                            "-=0.4",
+                        )
+                        .to(
+                            "#linea-sinninos",
+                            {
+                                opacity: 1,
+                                scaleX: 1,
+                                duration: 0.6,
+                                ease: "power2.out",
+                            },
+                            "-=0.3",
+                        )
+                        .to(
+                            "#descripcion-sinninos",
+                            {
+                                opacity: 1,
+                                y: 0,
+                                duration: 0.7,
+                                ease: "power2.out",
+                            },
+                            "-=0.3",
+                        )
+                        .to(
+                            "#nota-sinninos",
+                            {
+                                opacity: 1,
+                                y: 0,
+                                duration: 0.7,
+                                ease: "power2.out",
+                            },
+                            "-=0.4",
+                        );
+                },
+                onLeaveBack: () => {
+                    const tl = gsap.timeline();
+                    tl.to(
+                        "#separador-sinninos, #icono-sinninos, #titulo-sinninos, #linea-sinninos, #descripcion-sinninos, #nota-sinninos",
+                        {
+                            opacity: 0,
+                            duration: 0.5,
+                            ease: "power2.in",
+                        },
+                    )
+                        .to(
+                            "#separador-sinninos",
+                            { scale: 0.8, duration: 0.5 },
+                            "<",
+                        )
+                        .to(
+                            "#icono-sinninos",
+                            { scale: 0.7, rotation: -10, duration: 0.5 },
+                            "<",
+                        )
+                        .to(
+                            "#titulo-sinninos, #descripcion-sinninos",
+                            { y: 15, duration: 0.5 },
+                            "<",
+                        )
+                        .to(
+                            "#linea-sinninos",
+                            { scaleX: 0, duration: 0.5 },
+                            "<",
+                        )
+                        .to("#nota-sinninos", { y: 10, duration: 0.5 }, "<");
+                },
+            });
+        });
+    }
+</script>
+
+<style>
+    /* Filtro dorado para #a27735 */
+    .icono-dorado {
+        filter: brightness(0) saturate(100%) invert(56%) sepia(12%)
+            saturate(1486%) hue-rotate(359deg) brightness(92%) contrast(87%);
+        transition:
+            filter 0.3s ease,
+            transform 0.3s ease;
+    }
+</style>

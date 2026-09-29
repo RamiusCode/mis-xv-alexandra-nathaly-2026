@@ -1,0 +1,143 @@
+---
+// Pase.astro — tarjeta de pases asignados.
+// La cantidad llega en el link: ?pases=1 … ?pases=5
+// Sin ese dato la tarjeta no se muestra.
+---
+
+<section class="seccion" id="seccion-pase" hidden>
+  <div class="tarjeta-pase">
+    <!-- Sello -->
+    <div class="sello" aria-hidden="true">XV</div>
+
+    <!-- Ícono de entrada -->
+    <svg
+      class="w-11 h-11 mx-auto text-[#7c6fc6]"
+      viewBox="0 0 48 48"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M6 14h36v7a3 3 0 0 0 0 6v7H6v-7a3 3 0 0 0 0-6z"></path>
+      <path d="M17 14v20" stroke-dasharray="2.5 3"></path>
+      <path d="M23 21h13M23 27h9"></path>
+    </svg>
+
+    <p class="etiqueta text-[0.72rem] text-[#3e3f91] mt-3">Pases asignados</p>
+    <div class="separador-plata text-[0.6rem] mt-2 w-[60%]" aria-hidden="true">✦</div>
+
+    <p class="numero-pase" id="pase-numero"></p>
+    <p class="etiqueta text-[0.72rem] text-[#3e3f91]" id="pase-palabra"></p>
+    <div class="separador-plata text-[0.6rem] mt-2 w-[60%]" aria-hidden="true">✦</div>
+
+    <p class="texto italic text-[1.1rem] mt-3">Esperamos contar con su presencia</p>
+
+    <!-- Un ícono por pase -->
+    <div class="flex justify-center gap-2 mt-4" id="pase-personas"></div>
+  </div>
+</section>
+
+<template id="pase-persona">
+  <span class="persona">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <circle cx="12" cy="8" r="4"></circle>
+      <path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7z"></path>
+    </svg>
+  </span>
+</template>
+
+<script>
+  import { leerPases, palabraPases } from "../scripts/pases";
+
+  const pases = leerPases(new URL(window.location.href));
+  const seccion = document.getElementById("seccion-pase");
+
+  if (pases && seccion) {
+    document.getElementById("pase-numero")!.textContent = String(pases);
+    document.getElementById("pase-palabra")!.textContent = palabraPases(pases);
+
+    const molde = document.getElementById("pase-persona") as HTMLTemplateElement;
+    const personas = document.getElementById("pase-personas")!;
+    for (let i = 0; i < pases; i++) {
+      personas.appendChild(molde.content.cloneNode(true));
+    }
+
+    seccion.hidden = false;
+  }
+</script>
+
+<style>
+  .tarjeta-pase {
+    position: relative;
+    max-width: 16.5rem;
+    margin: 1.75rem auto 0;
+    padding: 2.75rem 1.5rem 1.75rem;
+    border-radius: 1.5rem;
+    border: 1px solid #dcdcea;
+    background-image: linear-gradient(180deg, #ffffff 0%, #f6f5fc 100%);
+    box-shadow:
+      0 0 0 6px rgba(255, 255, 255, 0.9),
+      0 0 0 7px #e4e4ee,
+      0 14px 36px rgba(62, 63, 145, 0.1);
+    animation: aparecer-pase 0.9s ease-out both;
+  }
+
+  /* Sello plateado-lila que "cierra" la tarjeta */
+  .sello {
+    position: absolute;
+    top: -1.6rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Great Vibes", cursive;
+    font-size: 1.35rem;
+    color: #ffffff;
+    background-image: radial-gradient(circle at 35% 30%, #c9c3ee 0%, #9a8fd6 45%, #6d6ab8 100%);
+    box-shadow:
+      0 0 0 3px #e8e8f0,
+      0 0 0 4px #c9c9d8,
+      0 6px 14px rgba(62, 63, 145, 0.3);
+    text-shadow: 0 1px 2px rgba(46, 47, 114, 0.4);
+  }
+
+  .numero-pase {
+    font-family: "Great Vibes", cursive;
+    font-size: 4.5rem;
+    line-height: 1.1;
+    color: #7c6fc6;
+    margin-top: 0.4rem;
+  }
+
+  .persona {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.9rem;
+    height: 1.9rem;
+    border-radius: 9999px;
+    background-color: #eceaf8;
+    color: #7c6fc6;
+  }
+
+  .persona :global(svg) {
+    width: 0.95rem;
+    height: 0.95rem;
+  }
+
+  @keyframes aparecer-pase {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

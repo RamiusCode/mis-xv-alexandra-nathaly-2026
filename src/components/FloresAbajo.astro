@@ -1,0 +1,42 @@
+---
+// Final.astro
+---
+
+<section class="relative w-full overflow-hidden text-center" id="seccion-final">
+  <div class="relative z-10 px-4 pt-4 revelar">
+    <img
+      src="/imagenes/CoronaPlata.webp"
+      alt=""
+      class="w-24 md:w-28 h-auto mx-auto"
+    />
+    <p class="nombre-final mt-2">Alexandra</p>
+    <p class="etiqueta mt-3">Mis XV años · 17 · 10 · 2026</p>
+  </div>
+
+  <!-- FLORES ESQUINAS INFERIORES -->
+  <div class="relative w-full -mt-6 pointer-events-none" id="flores-final">
+    <img
+      src="/imagenes/floresarriba.webp"
+      alt=""
+      class="w-full h-auto block scale-y-[-1]"
+    />
+  </div>
+</section>
+
+<script>
+  import "../scripts/revelar";
+</script>
+
+<style>
+  /* Mismo plateado que el nombre de la portada */
+  .nombre-final {
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(3.2rem, 14vw, 4.5rem);
+    line-height: 1.1;
+    color: #8c8ca3;
+    text-shadow:
+      0 1px 0 #ffffff,
+      0 2px 3px rgba(70, 70, 110, 0.35),
+      0 0 14px rgba(180, 170, 230, 0.35);
+  }
+</style>

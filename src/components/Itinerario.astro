@@ -1,0 +1,74 @@
+---
+// Itinerario.astro - Quinceañera
+// Momentos según información.txt
+const eventos = [
+  { titulo: "Ingreso de invitados", hora: "19:30 hrs.", icono: "/imagenes/IconoSalon.webp" },
+  { titulo: "Entrada especial", hora: "21:00 hrs.", icono: "/imagenes/IconoZapato.webp" },
+  { titulo: "Coreografía", hora: "21:30 hrs.", icono: "/imagenes/IconoVals.webp" },
+  { titulo: "Cena", hora: "22:00 hrs.", icono: "/imagenes/IconoCena.webp" },
+  { titulo: "Pastel", hora: "00:00 hrs.", icono: "/imagenes/IconoPastel.webp" },
+  { titulo: "Finalización", hora: "01:30 hrs.", icono: "/imagenes/IconoMusica.webp" },
+];
+---
+
+<section class="seccion">
+  <div class="revelar">
+    <p class="etiqueta">Programa de la noche</p>
+    <h2 class="titulo-seccion mt-1">Itinerario</h2>
+    <div class="separador-plata mt-3 mb-8" aria-hidden="true">✦</div>
+  </div>
+
+  <div class="relative max-w-md mx-auto">
+    <!-- LÍNEA VERTICAL CENTRAL -->
+    <div
+      class="absolute left-1/2 -translate-x-1/2 top-2 bottom-2 w-px bg-gradient-to-b from-transparent via-[#c9c9d8] to-transparent"
+    >
+    </div>
+
+    <div class="space-y-8">
+      {
+        eventos.map((evento, i) => {
+          const icono = (
+            <div class="flex justify-center">
+              <img src={evento.icono} alt="" class="w-12 h-12 md:w-14 md:h-14 object-contain" />
+            </div>
+          );
+          const texto = (
+            <div class="flex flex-col items-center justify-center">
+              <p class="texto text-[1.4rem] leading-tight text-[#3e3f91]">{evento.titulo}</p>
+              <p class="etiqueta text-[0.72rem] tracking-[0.2em] text-[#7c6fc6] mt-1">{evento.hora}</p>
+            </div>
+          );
+          return (
+            <div class="revelar relative grid grid-cols-2 gap-10 items-center">
+              {i % 2 === 0 ? icono : texto}
+              <span class="punto-item" aria-hidden="true" />
+              {i % 2 === 0 ? texto : icono}
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  import "../scripts/revelar";
+</script>
+
+<style>
+  /* Punto lila con aro plateado sobre la línea */
+  .punto-item {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 11px;
+    height: 11px;
+    margin: -5.5px 0 0 -5.5px;
+    border-radius: 9999px;
+    background-image: linear-gradient(135deg, #a9a0dd, #7c6fc6);
+    box-shadow:
+      0 0 0 3px #ffffff,
+      0 0 0 4px #c9c9d8;
+  }
+</style>

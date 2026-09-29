@@ -1,0 +1,62 @@
+---
+// Contador.astro
+const unidades = [
+  { id: "dias", nombre: "Días" },
+  { id: "horas", nombre: "Horas" },
+  { id: "minutos", nombre: "Minutos" },
+  { id: "segundos", nombre: "Segundos" },
+];
+---
+
+<section class="seccion">
+  <div class="revelar">
+    <p class="etiqueta">Para mi gran día</p>
+    <h2 class="titulo-seccion mt-1">Faltan</h2>
+    <div class="separador-plata mt-3 mb-8" aria-hidden="true">✦</div>
+
+    <div class="tarjeta grid grid-cols-4">
+      {
+        unidades.map((u, i) => (
+          <div class={`flex flex-col items-center ${i > 0 ? "border-l border-[#e4e4ee]" : ""}`}>
+            <span class="numero-contador" id={u.id}>00</span>
+            <span class="etiqueta text-[0.62rem] tracking-[0.2em] mt-2">{u.nombre}</span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  import "../scripts/revelar";
+
+  // Fecha y hora según información.txt: 17/10/2026, 19:30 (ingreso de invitados)
+  const fechaEvento = new Date("2026-10-17T19:30:00").getTime();
+
+  function actualizarContador() {
+    const diferencia = Math.max(0, fechaEvento - Date.now());
+    const valores = {
+      dias: Math.floor(diferencia / 86400000),
+      horas: Math.floor((diferencia % 86400000) / 3600000),
+      minutos: Math.floor((diferencia % 3600000) / 60000),
+      segundos: Math.floor((diferencia % 60000) / 1000),
+    };
+    for (const [id, valor] of Object.entries(valores)) {
+      const el = document.getElementById(id);
+      if (el) el.textContent = String(valor).padStart(2, "0");
+    }
+  }
+
+  actualizarContador();
+  setInterval(actualizarContador, 1000);
+</script>
+
+<style>
+  .numero-contador {
+    font-family: "Cormorant Garamond", serif;
+    font-variant-numeric: lining-nums tabular-nums;
+    font-size: clamp(2.2rem, 9vw, 3rem);
+    line-height: 1;
+    color: #3e3f91;
+  }
+</style>

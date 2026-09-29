@@ -1,0 +1,263 @@
+---
+// DireccionIglesia.astro
+---
+
+<section class="py-8 px-4 relative">
+    <div class="max-w-xl mx-auto text-center relative">
+        <!-- TÍTULO IGLESIA -->
+        <div class="mb-2" id="titulo-iglesia">
+            <h2
+                class="font-charm text-2xl md:text-3xl text-[#a27735] font-bold tracking-wide"
+            >
+                MISA
+            </h2>
+        </div>
+
+        <!-- 🏛️ ICONO IGLESIA CON MARIPOSAS -->
+        <div
+            class="flex justify-center items-center gap-4 md:gap-6 mb-4"
+            id="icono-iglesia"
+        >
+            <!-- 🦋 MARIPOSA IZQUIERDA -->
+            <div
+                class="mariposa-flotante flex items-center"
+                id="mariposa-igl-izq"
+            >
+                <img
+                    src="/gif/MariposaRoja.gif"
+                    alt="Mariposa"
+                    class="w-20 h-20 object-contain"
+                />
+            </div>
+
+            <!-- ICONO CENTRAL IGLESIA -->
+            <img
+                src="/imagenes/iglesia.png"
+                alt="Icono de iglesia"
+                class="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 object-contain icono-dorado"
+            />
+
+            <!-- 🦋 MARIPOSA DERECHA -->
+            <div
+                class="mariposa-flotante flex items-center"
+                id="mariposa-igl-der"
+            >
+                <img
+                    src="/gif/MariposaRoja.gif"
+                    alt="Mariposa"
+                    class="w-20 h-20 object-contain scale-x-[-1]"
+                />
+            </div>
+        </div>
+
+        <!-- INFORMACIÓN DE UBICACIÓN -->
+        <div class="mb-2" id="info-iglesia">
+            <!-- Nombre del lugar -->
+            <h3
+                class="font-charm text-xl md:text-2xl text-[#a27735] font-bold mb-2"
+            >
+                Nuestra Señora de Asunción Llallagua
+            </h3>
+
+            <!-- Dirección -->
+            <p
+                class="font-charm text-lg md:text-xl text-[#800020] leading-relaxed mb-3"
+            >
+                Frente a la Plaza 6 de Agosto
+            </p>
+
+            <!-- Hora -->
+            <p class="font-charm text-xl md:text-2xl text-[#800020] font-bold">
+                Hora: 10:00
+            </p>
+        </div>
+
+        <!-- BOTÓN VER UBICACIÓN -->
+        <div class="flex justify-center" id="boton-ubicacion-iglesia">
+            <a
+                href="https://maps.app.goo.gl/xNYYNUBR5TLoQcj19"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <img
+                    src="/imagenes/BotonUbicacion.webp"
+                    alt="Ver ubicación en el mapa"
+                    class="w-48 md:w-56 lg:w-64 h-auto object-contain cursor-pointer transition-transform duration-300 hover:scale-105"
+                />
+            </a>
+        </div>
+    </div>
+</section>
+
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    if (typeof window !== "undefined") {
+        document.addEventListener("DOMContentLoaded", () => {
+            // Estado inicial
+            gsap.set("#icono-iglesia", { opacity: 0, scale: 0.8 });
+            gsap.set("#titulo-iglesia", { opacity: 0, scale: 0.9 });
+            gsap.set("#info-iglesia", { opacity: 0, scale: 0.9 });
+            gsap.set("#boton-ubicacion-iglesia", { opacity: 0, scale: 0.9 });
+            gsap.set("#mariposa-igl-izq", { opacity: 0, x: -30 });
+            gsap.set("#mariposa-igl-der", { opacity: 0, x: 30 });
+
+            // ✨ ANIMACIÓN SIMULTÁNEA - TODO AL MISMO TIEMPO
+            ScrollTrigger.create({
+                trigger: "#icono-iglesia",
+                start: "top 85%",
+                end: "top 20%",
+                onEnter: () => {
+                    const tl = gsap.timeline();
+
+                    // TODO aparece al mismo tiempo
+                    tl.to(
+                        "#icono-iglesia, #mariposa-igl-izq, #mariposa-igl-der, #titulo-iglesia, #info-iglesia, #boton-ubicacion-iglesia",
+                        {
+                            opacity: 1,
+                            duration: 1,
+                            ease: "power2.out",
+                        },
+                    )
+                        // Animaciones individuales (simultáneas)
+                        .to(
+                            "#icono-iglesia",
+                            {
+                                scale: 1,
+                                duration: 1,
+                                ease: "back.out(1.5)",
+                            },
+                            "<",
+                        )
+                        .to(
+                            "#mariposa-igl-izq",
+                            {
+                                x: 0,
+                                duration: 1,
+                                ease: "power2.out",
+                            },
+                            "<",
+                        )
+                        .to(
+                            "#mariposa-igl-der",
+                            {
+                                x: 0,
+                                duration: 1,
+                                ease: "power2.out",
+                            },
+                            "<",
+                        )
+                        .to(
+                            "#titulo-iglesia, #info-iglesia, #boton-ubicacion-iglesia",
+                            {
+                                scale: 1,
+                                duration: 1,
+                                ease: "back.out(1.2)",
+                            },
+                            "<",
+                        );
+
+                    // 🦋 FLOTADO CONTINUO DE MARIPOSAS (después de aparecer)
+                    gsap.to("#mariposa-igl-izq", {
+                        y: -15,
+                        x: 5,
+                        rotation: 5,
+                        duration: 3,
+                        ease: "sine.inOut",
+                        yoyo: true,
+                        repeat: -1,
+                        delay: 0.5,
+                    });
+
+                    gsap.to("#mariposa-igl-der", {
+                        y: -15,
+                        x: -5,
+                        rotation: -5,
+                        duration: 3.2,
+                        ease: "sine.inOut",
+                        yoyo: true,
+                        repeat: -1,
+                        delay: 0.7,
+                    });
+                },
+                onLeaveBack: () => {
+                    // Salida simultánea
+                    const tl = gsap.timeline();
+
+                    tl.to(
+                        "#icono-iglesia, #mariposa-igl-izq, #mariposa-igl-der, #titulo-iglesia, #info-iglesia, #boton-ubicacion-iglesia",
+                        {
+                            opacity: 0,
+                            duration: 0.5,
+                            ease: "power2.in",
+                        },
+                    )
+                        .to(
+                            "#icono-iglesia",
+                            {
+                                scale: 0.8,
+                                duration: 0.5,
+                                ease: "power2.in",
+                            },
+                            "<",
+                        )
+                        .to(
+                            "#mariposa-igl-izq",
+                            {
+                                x: -30,
+                                duration: 0.5,
+                                ease: "power2.in",
+                            },
+                            "<",
+                        )
+                        .to(
+                            "#mariposa-igl-der",
+                            {
+                                x: 30,
+                                duration: 0.5,
+                                ease: "power2.in",
+                            },
+                            "<",
+                        )
+                        .to(
+                            "#titulo-iglesia, #info-iglesia, #boton-ubicacion-iglesia",
+                            {
+                                scale: 0.9,
+                                duration: 0.5,
+                                ease: "power2.in",
+                            },
+                            "<",
+                        );
+                },
+            });
+
+            console.log("⛪🦋 Sección de Iglesia con mariposas inicializada");
+        });
+    }
+</script>
+
+<style>
+    /* Asegurar que las mariposas tengan un movimiento fluido */
+    .mariposa-flotante {
+        will-change: transform;
+        transition: all 0.3s ease;
+    }
+
+    /* Hover en las mariposas */
+    .mariposa-flotante:hover {
+        transform: scale(1.1) !important;
+        filter: brightness(1.2);
+    }
+
+    /* Filtro dorado para #a27735 */
+    .icono-dorado {
+        filter: brightness(0) saturate(100%) invert(56%) sepia(12%)
+            saturate(1486%) hue-rotate(359deg) brightness(92%) contrast(87%);
+        transition:
+            filter 0.3s ease,
+            transform 0.3s ease;
+    }
+</style>

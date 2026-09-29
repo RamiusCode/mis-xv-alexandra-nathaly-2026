@@ -1,0 +1,48 @@
+---
+// FechaEvento.astro
+---
+
+<section class="seccion">
+  <div class="max-w-xl mx-auto revelar">
+    <p class="etiqueta">Guarda la fecha</p>
+    <h2 class="titulo-seccion mt-1">Acompáñanos</h2>
+    <p class="texto mt-1">en este día tan especial</p>
+
+    <div class="flex items-center justify-center gap-5 md:gap-7 mt-8">
+      <div class="w-24 md:w-28">
+        <div class="linea-fecha"></div>
+        <p class="etiqueta text-[#3e3f91] py-2">Sábado</p>
+        <div class="linea-fecha"></div>
+      </div>
+
+      <p class="numero-fecha">17</p>
+
+      <div class="w-24 md:w-28">
+        <div class="linea-fecha"></div>
+        <p class="etiqueta text-[#3e3f91] py-2">Octubre</p>
+        <div class="linea-fecha"></div>
+      </div>
+    </div>
+
+    <p class="texto text-3xl tracking-[0.2em] text-[#7c6fc6] mt-3">2026</p>
+  </div>
+</section>
+
+<script>
+  import "../scripts/revelar";
+</script>
+
+<style>
+  .linea-fecha {
+    height: 1px;
+    background-image: linear-gradient(90deg, transparent, #b9b9cc 30%, #b9b9cc 70%, transparent);
+  }
+
+  .numero-fecha {
+    font-family: "Cormorant Garamond", serif;
+    font-variant-numeric: lining-nums;
+    font-size: 5.5rem;
+    line-height: 1;
+    color: #7c6fc6;
+  }
+</style>

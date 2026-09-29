@@ -1,0 +1,71 @@
+---
+// Padrinos.astro
+---
+
+<section class="py-4 px-4">
+  <div class="max-w-3xl mx-auto text-center">
+    <h2 class="font-charm text-xl text-[#b8860b] font-bold mb-4" id="titulo-padrinos">
+      MIS PADRINOS
+    </h2>
+    <div class="space-y-2" id="nombres-padrinos">
+      <p class="font-charm text-lg text-[#4e684b]">Marco Antonio Rojas Salazar</p>
+      <p class="font-charm text-lg text-[#4e684b]">Verónica Quispe Nina</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener("DOMContentLoaded", () => {
+    // Estado inicial para ambos elementos
+    gsap.set("#titulo-padrinos", { opacity: 0, y: 30 });
+    gsap.set("#nombres-padrinos", { opacity: 0, y: 30 });
+
+    // Animación del título
+    gsap.to("#titulo-padrinos", {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: "#titulo-padrinos",
+        start: "top 85%",
+        end: "top 20%",
+        toggleActions: "play none none reverse",
+        onEnter: () => {
+          console.log("👨‍👩‍👧 Título Padrinos aparece");
+        },
+        onLeaveBack: () => {
+          console.log("👨‍👩‍👧 Título Padrinos desaparece");
+          gsap.set("#titulo-padrinos", { opacity: 0, y: 30 });
+        },
+      },
+    });
+
+    // Animación de los nombres (con delay para efecto escalonado)
+    gsap.to("#nombres-padrinos", {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      delay: 0.3, // 👈 aparece un poco después del título
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: "#nombres-padrinos",
+        start: "top 85%",
+        end: "top 20%",
+        toggleActions: "play none none reverse",
+        onEnter: () => {
+          console.log("👨‍👩‍👧 Nombres Padrinos aparecen");
+        },
+        onLeaveBack: () => {
+          console.log("👨‍👩‍👧 Nombres Padrinos desaparecen");
+          gsap.set("#nombres-padrinos", { opacity: 0, y: 30 });
+        },
+      },
+    });
+  });
+</script>
