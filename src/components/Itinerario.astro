@@ -7,7 +7,7 @@ const eventos = [
   { titulo: "Coreografía", hora: "21:30 hrs.", icono: "/imagenes/IconoVals.webp" },
   { titulo: "Cena", hora: "22:00 hrs.", icono: "/imagenes/IconoCena.webp" },
   { titulo: "Pastel", hora: "00:00 hrs.", icono: "/imagenes/IconoPastel.webp" },
-  { titulo: "Finalización", hora: "01:30 hrs.", icono: "/imagenes/IconoMusica.webp" },
+  { titulo: "Finalización", hora: "01:30 hrs.", icono: "/imagenes/finalizacion.webp" },
 ];
 ---
 
@@ -36,7 +36,7 @@ const eventos = [
           const texto = (
             <div class="flex flex-col items-center justify-center">
               <p class="texto text-[1.4rem] leading-tight text-[#3e3f91]">{evento.titulo}</p>
-              <p class="etiqueta text-[0.72rem] tracking-[0.2em] text-[#7c6fc6] mt-1">{evento.hora}</p>
+              <p class="etiqueta text-[1rem] md:text-[1.1rem] tracking-[0.2em] text-[#7c6fc6] mt-1">{evento.hora}</p>
             </div>
           );
           return (

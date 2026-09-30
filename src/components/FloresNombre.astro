@@ -80,29 +80,6 @@
             </div>
         </div>
     </div>
-
-    <!-- SILUETA CON FLORES ESQUINAS INFERIORES -->
-    <div class="relative w-full overflow-visible" id="foto-container">
-        <div
-            class="absolute bottom-0 left-0 w-full pointer-events-none z-0"
-            id="flores-abajo"
-        >
-            <img
-                src="/imagenes/floresarriba.webp"
-                alt="Flores decorativas"
-                class="w-full h-auto block scale-y-[-1]"
-            />
-        </div>
-
-        <div class="relative z-10 flex justify-center">
-            <img
-                src="/imagenes/Silueta.webp"
-                alt="Silueta de la quinceañera"
-                class="w-[92vw] max-w-[560px] h-auto object-contain"
-                id="foto-quinceañera"
-            />
-        </div>
-    </div>
 </section>
 
 <script>
@@ -226,13 +203,6 @@
             },
         );
 
-        // FLORES ABAJO - Suben suavemente junto con la silueta
-        gsap.fromTo(
-            "#flores-abajo",
-            { opacity: 0, y: 40 },
-            { opacity: 1, y: 0, duration: 1.5, ease: "power2.out", delay: 0.7 },
-        );
-
         // NOMBRE - Efecto cascada letra por letra con salto de línea entre "Nicol" y "Melany"
         function nombreCascadaElegante() {
             const linea1 = "Alexandra";
@@ -287,24 +257,12 @@
             });
         }
 
-        // IMAGEN PRINCIPAL - Fade in con zoom
-        gsap.fromTo(
-            "#foto-container",
-            { opacity: 0, scale: 0.8, y: 30 },
-            { opacity: 1, scale: 1, y: 0, duration: 1.2, ease: "power2.out" },
-        );
-
         nombreCascadaElegante();
         console.log("Animaciones listas!");
     });
 </script>
 
 <style>
-    /* Fondo blanco-lila declarado como imagen: el modo oscuro forzado lo respeta */
-    #portada {
-        background-image: linear-gradient(180deg, #fbfaff 0%, #f4f2fc 55%, #f7f5fd 100%);
-    }
-
     .linea-plata {
         height: 1px;
         background-image: linear-gradient(90deg, transparent, #a9a9bd 40%, #a9a9bd 60%, transparent);
